@@ -26,7 +26,7 @@ frida -Uf com.example.myapp -l FlutterProxy.js
 
 ## Proof of Concept (PoC)
 
-### **Step 1 — Start Burp Suite Proxy on the Host Machine**
+### **Step 1: Start Burp Suite Proxy on the Host Machine**
 Open Burp Suite and enable the Proxy listener.
 
 - Go to **Proxy → Options → Proxy Listeners**
@@ -40,7 +40,7 @@ Make sure your device and host machine are on the same network.
 
 ---
 
-### **Step 2 — Specify Burp IP and Port in the Script**
+### **Step 2: Specify Burp IP and Port in the Script**
 At the **very end** of `FlutterProxy.js`, configure your proxy:
 
 ```js
@@ -51,7 +51,7 @@ BURP_PROXY_PORT = 8080;          // your Burp proxy port
 <img width="932" height="477" alt="Script changes IP and PORT" src="https://github.com/user-attachments/assets/14e382f3-3e8c-44b2-89dd-d80ae1d5a8a8" />
 
 ---
-### **Step 3 — Attach Frida to the Flutter App**
+### **Step 3: Attach Frida to the Flutter App**
 
 Run this command in CMD/Terminal:
 ```bash
