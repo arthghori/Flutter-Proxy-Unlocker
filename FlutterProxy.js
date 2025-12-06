@@ -721,4 +721,4 @@ if (target_flutter_library != null) {
     awaitForCondition(init);
 }
 /* main */
-/* Get export function */
+/* arise the kai */
