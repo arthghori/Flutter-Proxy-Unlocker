@@ -9,14 +9,13 @@ Flutter-Proxy-Unlocker is a Frida-based toolkit for intercepting and redirecting
 #### List running apps
 ```bash
 frida-ps -Uai
-Spawn the app with the script
 ```
+Spawn the app with the script
 ```bash
 frida -U -f com.example.myapp -l FlutterProxy.js
-Attach to a running process
 ```
+Attach to a running process
 ```bash
 frida -U -n com.example.myapp -l FlutterProxy.js
-
 ```
 
