@@ -1,0 +1,3 @@
+# Flutter-Proxy-Unlocker
+
+Flutter-Proxy-Unlocker is a powerful Frida-based toolkit designed for security researchers who need to intercept and analyze network traffic from Flutter mobile applications. It automatically locates and hooks critical Flutter engine functions on both Android and iOS, bypassing SSL/TLS certificate validation and transparently redirecting sockets to a Burp Suite proxy. The script supports arm64 and x86_64 architectures, works with Android and IOS binaries, and enables full HTTPS visibility in authorized penetration testing environments without modifying or repackaging the app. Ideal for Flutter application security assessments, traffic debugging, and mobile pentesting labs.
