@@ -58,7 +58,7 @@ Run this command in CMD/Terminal:
 frida -Uf <package_name> -l FlutterProxy.js
 ```
 
-https://github.com/user-attachments/assets/64c87560-cc1d-4879-bba9-e2fc4201004b
+https://github.com/user-attachments/assets/0b0656e3-2cee-417d-880f-85783811587c
 
 
 
