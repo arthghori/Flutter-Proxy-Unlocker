@@ -65,7 +65,66 @@ https://github.com/user-attachments/assets/f5cec8ce-946e-4792-93ea-9f26934a089d
 **Emulator Users (Nox / Android Studio / BlueStacks)**
 
 Do **not** configure the proxy in the emulator's WiFi settings.</br>
-Instead, just set your host machine's gateway IP directly in the script:
+Instead, just set your host machine's gateway IP directly in the script
+
+## Troubleshooting — Still Not Getting Requests in Burp?
+
+If requests are still not showing in Burp Suite after following the steps above, try this method:
+
+### Step 1 — Check Your Emulator Network
+```bash
+adb shell ip route
+```
+Note the network range (e.g. `172.17.100.0/24`)
+
+---
+<img width="1038" height="97" alt="image" src="https://github.com/user-attachments/assets/b966bb9b-5f53-4e03-a8f6-66d1992e697a" />
+
+### Step 2 — Find the Default Gateway IP
+```bash
+adb shell ip route show table all
+```
+Look for the line starting with `default via`:
+```
+default via 172.17.100.2 dev wlan0  ← this is your host IP from emulator
+```
+
+---
+
+<img width="695" height="391" alt="image" src="https://github.com/user-attachments/assets/c8d75962-0f3d-4954-8c06-f79bc2752eb4" />
+
+### Step 3 — Verify the Gateway is Reachable
+```bash
+adb shell ping -c 3 172.17.100.2
+```
+Expected output (success ✅):
+```
+64 bytes from 172.17.100.2: icmp_seq=1 ttl=64 time=2.34 ms
+64 bytes from 172.17.100.2: icmp_seq=2 ttl=64 time=1.12 ms
+64 bytes from 172.17.100.2: icmp_seq=3 ttl=64 time=1.56 ms
+```
+If you see timeouts ❌ — check your Windows Firewall and allow Burp Suite/Java through it.
+
+---
+
+### Step 4 — Update the Script with Gateway IP
+```js
+BURP_PROXY_IP = "172.17.100.2";  // default via IP from Step 2
+BURP_PROXY_PORT = 8083;           // must match your Burp listener port
+```
+
+---
+<img width="679" height="241" alt="image" src="https://github.com/user-attachments/assets/444838f7-99dc-4748-94d9-0ebd70f7ac77" />
+
+### Step 5 — Run Frida Again
+```bash
+frida -Uf com.example.myapp -l FlutterProxy.js
+```
+You should now see in the Frida console:
+```
+[*] Overwrite sockaddr as our burp proxy ip and port --> 172.17.100.2:8083 ✅
+```
+And requests will appear in **Burp → Proxy → HTTP History** 🎉
 
 
 
