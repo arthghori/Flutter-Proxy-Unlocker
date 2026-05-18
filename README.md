@@ -62,10 +62,10 @@ https://github.com/user-attachments/assets/f5cec8ce-946e-4792-93ea-9f26934a089d
 
 ## Note
 
-> **Emulator Users (Nox / Android Studio / BlueStacks)**
->
-> Do **not** configure the proxy in the emulator's WiFi settings.
-> Instead, just set your host machine's gateway IP directly in the script:
+**Emulator Users (Nox / Android Studio / BlueStacks)**
+
+Do **not** configure the proxy in the emulator's WiFi settings.</br>
+Instead, just set your host machine's gateway IP directly in the script:
 
 
 
