@@ -96,7 +96,7 @@ https://github.com/user-attachments/assets/f5cec8ce-946e-4792-93ea-9f26934a089d
 > ```
 ---
 
-## Troubleshooting — Still Not Getting Requests in Burp?
+## Troubleshooting Still Not Getting Requests in Burp?
 
 If requests are still not showing in Burp Suite after following the steps above, try this method:
 
